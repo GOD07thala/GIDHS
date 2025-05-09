@@ -1,0 +1,12 @@
+const puppeteer = require('puppeteer');
+
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://bigmumbaiy.com/#/saasLottery/WinGo?gameCode=WinGo_5M&lottery=WinGo', {
+    waitUntil: 'networkidle0',
+  });
+  const html = await page.content();
+  console.log(html);
+  await browser.close();
+})();
